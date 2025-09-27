@@ -26,4 +26,23 @@ app.use (express.json());
     console.log ('API Torneo Gaming en http://localhost:3000')
  })
 
- 
+  app.get ('/jugadores/:id', (req,res) => {
+    const limite = pareInt (req.query.limite);
+    const juego = req.query.juego;
+    const nivel = req.query.nivel;
+    const pais = req.query.pais;
+    const buscar = req.query.buscar;
+
+    let resultado = jugadores;
+
+    // Filtrar por juego
+
+    if (juego) {
+        resultado = resultado.filter (j => 
+            j.juego.toLowerCase().includes(juego.toLoWerCase())
+        );
+    }
+
+})
+
+
